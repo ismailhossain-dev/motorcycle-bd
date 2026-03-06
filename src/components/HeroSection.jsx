@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 // 1️⃣ Hero Section
@@ -15,9 +16,9 @@ export const HeroSection = () => {
             and durability.
           </p>
           <div className="flex gap-4">
-            <button className="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-xl font-semibold">
+            <Link href="/allBooks" className="btn flex items-center justify-center">
               Shop Now
-            </button>
+            </Link>
             <button className="border border-white px-6 py-3 rounded-xl hover:bg-white hover:text-black transition">
               Explore Models
             </button>
@@ -28,7 +29,7 @@ export const HeroSection = () => {
           <img
             src="/R15.avif"
             alt="bike"
-            className="w-auto max-w-md object-contain h-130 rounded-md"
+            className="w-auto max-w-md object-contain h-130 rounded-[2rem]"
           />
         </div>
       </div>

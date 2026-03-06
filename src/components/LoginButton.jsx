@@ -1,0 +1,15 @@
+"use client";
+import { signIn } from "next-auth/react";
+import React from "react";
+
+const LoginButton = () => {
+  // undefined deyar mane hocche NextAuth tar built-in login page-e niye jabe
+  // ebong success hole callbackUrl (home page) e redirect korbe
+  return (
+    <button className="btn rounded-full" onClick={() => signIn(undefined, { callbackUrl: "/" })}>
+      Login
+    </button>
+  );
+};
+
+export default LoginButton;

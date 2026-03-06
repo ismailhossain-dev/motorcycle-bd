@@ -20,6 +20,7 @@ export const postUser = async (payload) => {
   // console.log(newUser);
 
   const result = await dbConnect("users").insertOne(newUser);
+  console.log(result);
   if (result.acknowledged) {
     return {
       success: true,
