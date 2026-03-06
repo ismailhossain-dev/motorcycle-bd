@@ -2,6 +2,7 @@ import { dbConnect } from "@/lib/dbConnect";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
+
 export const authOptions = {
   providers: [
     CredentialsProvider({
@@ -39,6 +40,9 @@ export const authOptions = {
       },
     }),
   ],
+
+  //custom login page
+  pages: { signIn: "/login" },
 };
 
 const handler = NextAuth(authOptions);

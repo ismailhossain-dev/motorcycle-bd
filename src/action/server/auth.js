@@ -2,6 +2,7 @@
 // All Register work
 import { dbConnect } from "@/lib/dbConnect";
 import bcrypt from "bcryptjs";
+import { toast } from "react-toastify";
 //postUser ta Register user korsi er value gola ekane payload hisabe pabe
 export const postUser = async (payload) => {
   //payload ta asbe register form hit korle
@@ -20,7 +21,7 @@ export const postUser = async (payload) => {
   // console.log(newUser);
 
   const result = await dbConnect("users").insertOne(newUser);
-  console.log(result);
+
   if (result.acknowledged) {
     return {
       success: true,

@@ -6,5 +6,5 @@ export function proxy(request) {
 }
 
 export const config = {
-  matcher: "/about/:path*",
+  matcher: "/helldod/:path*",
 };

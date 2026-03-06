@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React from "react";
 
-// 1️⃣ Hero Section
 export const HeroSection = () => {
   return (
     <section className="bg-[#111111] text-white py-16 px-6 md:px-20">
@@ -16,7 +15,7 @@ export const HeroSection = () => {
             and durability.
           </p>
           <div className="flex gap-4">
-            <Link href="/allBooks" className="btn flex items-center justify-center">
+            <Link href="/allbikes" className="btn flex items-center justify-center">
               Shop Now
             </Link>
             <button className="border border-white px-6 py-3 rounded-xl hover:bg-white hover:text-black transition">

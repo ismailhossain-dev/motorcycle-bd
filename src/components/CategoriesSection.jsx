@@ -18,7 +18,7 @@ export const CategoriesSection = async () => {
           <span className="text-orange-500 font-bold tracking-[0.3em] uppercase text-[10px] mb-3">
             Exploration
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
             Our Bike <span className="text-orange-600">Categories</span>
           </h2>
           <div className="mt-4 h-1 w-20 bg-orange-600 rounded-full"></div>

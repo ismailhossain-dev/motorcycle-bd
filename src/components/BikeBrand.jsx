@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 
-const BikeBrand = ({ allBooks }) => {
-  const uniqueBrands = [...new Set(allBooks.map((item) => item.brand))];
+const BikeBrand = ({ allbikes }) => {
+  const uniqueBrands = [...new Set(allbikes.map((item) => item.brand))];
 
   return (
     // Fixed: lg screen-e width fixed thakbe, mobile-e full width
@@ -34,14 +34,14 @@ const BikeBrand = ({ allBooks }) => {
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
                 <span className="font-bold text-xs lg:text-sm">All</span>
                 <span className="text-[10px] font-black bg-orange-600/50 px-2 py-0.5 rounded-full">
-                  {allBooks.length}
+                  {allbikes.length}
                 </span>
               </button>
             </li>
 
             {/* Dynamic Brand List */}
             {uniqueBrands.map((brandName, index) => {
-              const count = allBooks.filter((item) => item.brand === brandName).length;
+              const count = allbikes.filter((item) => item.brand === brandName).length;
               return (
                 <li key={index} className="flex-shrink-0">
                   <button className="whitespace-nowrap group flex items-center gap-3 px-4 py-3 rounded-xl lg:rounded-2xl hover:bg-gray-50 transition-all duration-300 border border-gray-100 lg:border-transparent hover:border-gray-200 shadow-sm lg:shadow-none bg-white lg:bg-transparent">

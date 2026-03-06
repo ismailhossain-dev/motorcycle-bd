@@ -15,8 +15,10 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Shop", path: "/allBooks" },
+    { name: "Shop", path: "/allbikes" },
     { name: "About", path: "/about" },
+    { name: "Featured Bikes", path: "/feature" },
+    { name: "Contact Us", path: "/contact" },
   ];
 
   return (
@@ -81,7 +83,7 @@ const Navbar = () => {
                     </div>
                     <div className="py-2">
                       <Link
-                        href="/dashboard"
+                        href="/(dashboard)"
                         className="block px-5 py-2.5 text-sm hover:bg-gray-50"
                       >
                         Dashboard

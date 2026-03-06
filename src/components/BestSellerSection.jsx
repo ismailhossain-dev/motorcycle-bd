@@ -15,7 +15,7 @@ export const BestSellerSection = () => {
             <span className="text-orange-500 font-bold tracking-[0.2em] uppercase text-xs mb-3 block">
               Top Picks of the Month
             </span>
-            <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
               Best Sellers <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-600">
                 Products This Week
@@ -23,7 +23,7 @@ export const BestSellerSection = () => {
             </h2>
           </div>
           <Link
-            href="/allBooks"
+            href="/allbikes"
             className="text-gray-400 hover:text-orange-500 font-semibold transition-colors flex items-center gap-2 group"
           >
             View All Collection
@@ -43,7 +43,7 @@ export const BestSellerSection = () => {
             <div className="bg-orange-600 text-[10px] font-bold text-white px-3 py-1 rounded-full w-fit mb-4 uppercase tracking-widest">
               World's Fastest
             </div>
-            <h3 className="text-4xl font-black text-white mb-6 leading-[1.1]">
+            <h3 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
               KAWASAKI <br /> NINJA H2R <br /> 2024 EDITION
             </h3>
             <p className="text-gray-400 mb-8 max-w-[250px] font-medium leading-relaxed">
@@ -53,7 +53,7 @@ export const BestSellerSection = () => {
           </div>
 
           <Link
-            href="/allBooks"
+            href="/allbikes"
             className="relative z-10 bg-white text-black font-bold py-4 px-8 rounded-2xl w-fit shadow-lg hover:bg-orange-600 hover:text-white transition-all duration-300 transform active:scale-95"
           >
             Explore Performance
@@ -98,7 +98,7 @@ export const BestSellerSection = () => {
 
             <div className="flex items-center gap-6 justify-center md:justify-start">
               <Link
-                href="/allBooks"
+                href="/allbikes"
                 className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-10 rounded-2xl transition-all shadow-xl shadow-orange-500/20 active:scale-95"
               >
                 Pre-Order Now

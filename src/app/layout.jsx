@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 import NextAuthProvider from "@/Provider/NextAuthProvider";
+import Container from "@/components/Container";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +36,9 @@ export default function RootLayout({ children }) {
           <Navbar />
 
           <div className="min-h-[calc(100vh-472px)]">
-            <main>{children}</main>
+            <Container>
+              <main>{children}</main>
+            </Container>
             <ToastContainer position="top-right" />
           </div>
 
