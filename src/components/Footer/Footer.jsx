@@ -71,19 +71,23 @@ const Footer = () => {
               <span className="absolute -bottom-1 left-0 w-8 h-1 bg-orange-500 rounded-full"></span>
             </h3>
             <ul className="space-y-4 text-sm font-medium">
-              {["About Us", "Our Bikes", "Our Services", "Article & News", "Contact"].map(
-                (item) => (
-                  <li key={item}>
-                    <Link
-                      href={`/${item.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
-                      className="hover:text-orange-500 transition-all flex items-center gap-2 group"
-                    >
-                      <span className="w-1.5 h-1.5 bg-gray-700 rounded-full group-hover:bg-orange-500 group-hover:w-3 transition-all"></span>
-                      {item}
-                    </Link>
-                  </li>
-                ),
-              )}
+              {[
+                { name: "About Us", href: "/about" },
+                { name: "Our Bikes", href: "/allbikes" },
+                { name: "Featured Bike", href: "/feature" },
+
+                { name: "Contact", href: "/contact" },
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="hover:text-orange-500 transition-all flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 bg-gray-700 rounded-full group-hover:bg-orange-500 group-hover:w-3 transition-all"></span>
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

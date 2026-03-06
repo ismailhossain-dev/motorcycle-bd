@@ -42,9 +42,6 @@ const page = async () => {
               </span>
             </h2>
             {/* Decorative Outline Text (Behind) */}
-            <span className="absolute -top-4 -right-8 text-7xl md:text-9xl font-black text-white/[0.03] select-none pointer-events-none hidden sm:block">
-              BIKER
-            </span>
           </div>
 
           {/* Description with Vertical Accent */}
