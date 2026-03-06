@@ -1,7 +1,8 @@
 "use server";
-// All Register work
+// register and api work
 import { dbConnect } from "@/lib/dbConnect";
 import bcrypt from "bcryptjs";
+import { ObjectId } from "mongodb";
 import { toast } from "react-toastify";
 //postUser ta Register user korsi er value gola ekane payload hisabe pabe
 export const postUser = async (payload) => {
@@ -34,5 +35,23 @@ export const postUser = async (payload) => {
       success: false,
       message: "Something went long, try again",
     };
+  }
+};
+
+//single data get bikes
+
+export const getSingleProduct = async (id) => {
+  try {
+    const collection = dbConnect("bikeData");
+
+    // 2. Query ready korun
+    const query = { _id: new ObjectId(id) };
+
+    const product = await collection.findOne(query);
+
+    return product;
+  } catch (error) {
+    console.error("Data khujthe somossa hoyeche:", error);
+    return null;
   }
 };

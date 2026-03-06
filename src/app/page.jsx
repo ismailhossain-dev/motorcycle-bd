@@ -54,7 +54,7 @@ const page = async () => {
           </div>
         </div>
         {/*  */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-auto gap-6 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-auto gap-6 my-10 ">
           {books.map((bike) => (
             <BikeCard key={bike._id} bike={bike}></BikeCard>
           ))}

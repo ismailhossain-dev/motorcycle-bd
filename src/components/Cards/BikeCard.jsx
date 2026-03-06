@@ -2,7 +2,7 @@
 import React from "react";
 
 import Link from "next/link";
-import Container from "../Container";
+import Image from "next/image";
 
 const BikeCard = ({ bike }) => {
   if (!bike) return null;
@@ -13,7 +13,9 @@ const BikeCard = ({ bike }) => {
     <div className="group relative flex  flex-col rounded-[2.5rem] bg-white p-3 shadow-xl transition-all duration-500 hover:shadow-2xl hover:shadow-blue-100 h-full">
       {/* Image Container with Gradient Overlay */}
       <div className="relative aspect-[4/4]  overflow-hidden rounded-[2rem] bg-slate-100 shadow-inner">
-        <img
+        <Image
+          width={200}
+          height={180}
           src={image}
           alt={name}
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"

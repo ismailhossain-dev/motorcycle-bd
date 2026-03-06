@@ -19,6 +19,7 @@ const Navbar = () => {
     { name: "About", path: "/about" },
     { name: "Featured Bikes", path: "/feature" },
     { name: "Contact Us", path: "/contact" },
+    { name: "Manage Bikes", path: "/manage-bike" },
   ];
 
   return (
@@ -83,7 +84,7 @@ const Navbar = () => {
                     </div>
                     <div className="py-2">
                       <Link
-                        href="/(dashboard)"
+                        href="/dashboard"
                         className="block px-5 py-2.5 text-sm hover:bg-gray-50"
                       >
                         Dashboard

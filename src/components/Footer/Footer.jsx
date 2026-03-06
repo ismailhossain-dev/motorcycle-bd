@@ -12,26 +12,6 @@ import {
 const Footer = () => {
   return (
     <footer className="bg-[#0a0a0a] text-gray-400 font-sans">
-      {/* Newsletter Section */}
-      <div className="border-b border-gray-800/50 bg-[#0f0f0f]">
-        <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold text-white">Subscribe to our Newsletter</h3>
-            <p className="text-sm text-gray-500">Get the latest updates on new bikes and offers.</p>
-          </div>
-          <div className="w-full md:w-auto flex flex-col sm:flex-row gap-3">
-            <input
-              type="email"
-              placeholder="Your Email Address"
-              className="bg-gray-900 border border-gray-800 px-5 py-3 rounded-xl focus:outline-none focus:border-orange-500 text-sm transition-all w-full md:w-80"
-            />
-            <button className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-lg shadow-orange-900/20 active:scale-95 text-sm uppercase tracking-wider">
-              Join Now
-            </button>
-          </div>
-        </div>
-      </div>
-
       {/* Main content */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">

@@ -82,6 +82,11 @@ const LoginPage = () => {
           </button>
         </form>
 
+        {/* Google login button */}
+        <button className="btn mt-5 w-full" onClick={() => signIn("google", { callbackUrl: "/" })}>
+          Sign in with Google
+        </button>
+
         {/* Footer Link */}
         <p className="text-center text-gray-500 mt-8 text-sm">
           Don't have an account?{" "}
