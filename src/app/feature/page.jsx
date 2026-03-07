@@ -39,8 +39,8 @@ export default function FeaturedSection() {
               <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-[10px] mb-3 block">
                 Premium Collection
               </span>
-              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">
-                Featured <span className="text-blue-600 italic">Machines</span>
+              <h2 className="text-5xl md:text-5xl font-black uppercase tracking-tighter leading-none">
+                Featured <span className="text-blue-600 italic">Bikes</span>
               </h2>
               <div className="absolute -left-6 top-0 w-1 h-full bg-blue-600 hidden md:block"></div>
             </div>

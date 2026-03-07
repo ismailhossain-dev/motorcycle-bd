@@ -1,31 +1,63 @@
 import ManageBikesTable from "@/components/ManageBikesTable";
+import Link from "next/link";
 import React from "react";
 
 const ManageBikes = async () => {
-  const res = await fetch("http://localhost:3000/api/allBikes");
+  // Caching ebong revalidation handle korar jonno
+  const res = await fetch("http://localhost:3000/api/allBikes", {
+    cache: "no-store",
+  });
   const bikes = await res.json();
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Manage All Bikes</h2>
+    <div className="max-w-7xl mx-auto p-6 md:p-10">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+        <div>
+          <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+            Inventory <span className="text-orange-600">Management</span>
+          </h2>
+          <p className="text-gray-500 text-sm mt-1">
+            Total {bikes?.length || 0} bikes listed in your shop.
+          </p>
+        </div>
+        <Link
+          href="add-bike"
+          className="btn bg-orange-600 hover:bg-orange-700 text-white border-none rounded-xl"
+        >
+          + Add New Bike
+        </Link>
+      </div>
 
-      <div className="overflow-x-auto w-full rounded-xl border border-base-300 shadow-sm">
-        <table className="table w-full">
-          <thead className="bg-base-200">
-            <tr>
-              <th>#</th>
-              <th>Bike Info</th>
-              <th>Brand & Category</th>
-              <th>Price</th>
-              <th className="text-center">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {bikes?.map((bike, index) => (
-              <ManageBikesTable key={bike._id} bike={bike} index={index} />
-            ))}
-          </tbody>
-        </table>
+      <div className="bg-white dark:bg-[#111111] rounded-2xl shadow-xl shadow-black/5 border border-gray-100 dark:border-gray-800 overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="table w-full border-collapse">
+            {/* Table Head */}
+            <thead className="bg-gray-50 dark:bg-[#1a1a1a]">
+              <tr className="border-b border-gray-100 dark:border-gray-800 text-gray-600 dark:text-gray-400 uppercase text-[11px] tracking-widest font-bold">
+                <th className="py-5 pl-6">#</th>
+                <th>Bike Details</th>
+                <th>Classification</th>
+                <th>Price</th>
+                <th className="text-right pr-10">Actions</th>
+              </tr>
+            </thead>
+
+            {/* Table Body */}
+            <tbody className="divide-y divide-gray-50 dark:divide-gray-800">
+              {bikes && bikes.length > 0 ? (
+                bikes.map((bike, index) => (
+                  <ManageBikesTable key={bike._id} bike={bike} index={index} />
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="5" className="py-20 text-center text-gray-400 italic">
+                    No bikes found in inventory.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

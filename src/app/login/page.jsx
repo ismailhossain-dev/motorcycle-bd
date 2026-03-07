@@ -18,13 +18,12 @@ const LoginPage = () => {
     const res = await signIn("credentials", {
       email,
       password,
-      redirect: false, // আমরা ম্যানুয়ালি রিডাইরেক্ট করবো
+      redirect: false,
     });
 
     if (res.error) {
       setError("Invalid Email or Password!");
     } else {
-      // লগইন সাকসেস হলে হোম পেজে নিয়ে যাবে
       router.push("/");
       router.refresh();
     }

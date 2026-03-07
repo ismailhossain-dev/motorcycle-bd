@@ -3,10 +3,11 @@ import { postUser } from "@/action/server/auth";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const RegisterForm = () => {
   const [loading, setLoading] = useState(false);
-
+  const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -17,9 +18,9 @@ const RegisterForm = () => {
     const password = form.password.value;
 
     const registerInfo = { name, email, password };
-
     try {
       const result = await postUser(registerInfo);
+      router.push("/login");
 
       if (result?.insertedId) {
         toast.success("Account created successfully! 🏍️");

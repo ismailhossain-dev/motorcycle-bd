@@ -19,7 +19,6 @@ const Navbar = () => {
     { name: "About", path: "/about" },
     { name: "Featured Bikes", path: "/feature" },
     { name: "Contact Us", path: "/contact" },
-    { name: "Manage Bikes", path: "/manage-bike" },
   ];
 
   return (
@@ -34,7 +33,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* 2. Desktop & Tablet Navigation (md:flex mane tablet theke boro screen-e dekhabe) */}
+        {/* 2. Desktop Navigation (Sudhu Common Links) */}
         <div className="hidden md:flex items-center space-x-1">
           {navLinks.map((link) => (
             <Link
@@ -49,6 +48,32 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
+          {/* Ekhane age Manage/Add bike chilo, seta ekhon soriye deya hoyeche */}
+          {session?.user && (
+            <>
+              <Link
+                href="/manage-bike"
+                className={`py-2 px-4 lg:px-5 rounded-full font-medium transition-all duration-300 text-sm lg:text-base ${
+                  pathName === "/manage-bike"
+                    ? "bg-orange-600 text-white shadow-lg"
+                    : "text-gray-400 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                Manage Bikes
+              </Link>
+
+              <Link
+                href="/add-bike"
+                className={`py-2 px-4 lg:px-5 rounded-full font-medium transition-all duration-300 text-sm lg:text-base ${
+                  pathName === "/add-bike"
+                    ? "bg-orange-600 text-white shadow-lg"
+                    : "text-gray-400 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                Add Bike
+              </Link>
+            </>
+          )}
         </div>
 
         {/* 3. User Actions */}
@@ -68,14 +93,14 @@ const Navbar = () => {
                 </div>
               </button>
 
-              {/* Dropdown Menu */}
+              {/* Dropdown Menu (Desktop) */}
               {isDropdownOpen && (
                 <>
                   <div
                     className="fixed inset-0 z-40"
                     onClick={() => setIsDropdownOpen(false)}
                   ></div>
-                  <div className="absolute right-0 mt-3 w-56 md:w-64 bg-white text-gray-800 rounded-2xl shadow-2xl py-4 z-50 border border-gray-100 overflow-hidden transform origin-top-right transition-all">
+                  <div className="absolute right-0 mt-3 w-56 md:w-64 bg-white text-gray-800 rounded-2xl shadow-2xl py-4 z-50 border border-gray-100 overflow-hidden transform origin-top-right">
                     <div className="px-5 pb-3 border-b border-gray-100">
                       <p className="text-sm font-bold text-gray-900 truncate">
                         {session.user.name}
@@ -83,12 +108,6 @@ const Navbar = () => {
                       <p className="text-xs text-gray-500 truncate">{session.user.email}</p>
                     </div>
                     <div className="py-2">
-                      <Link
-                        href="/dashboard"
-                        className="block px-5 py-2.5 text-sm hover:bg-gray-50"
-                      >
-                        Dashboard
-                      </Link>
                       <Link href="/profile" className="block px-5 py-2.5 text-sm hover:bg-gray-50">
                         My Profile
                       </Link>
@@ -117,7 +136,7 @@ const Navbar = () => {
             </div>
           )}
 
-          {/* 4. Mobile Menu Button (Hamburger) */}
+          {/* 4. Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 rounded-lg bg-white/5 text-gray-300 hover:text-white transition"
@@ -146,7 +165,7 @@ const Navbar = () => {
         onClick={() => setIsMobileMenuOpen(false)}
       ></div>
 
-      {/* Mobile Drawer (Ekhane Link gulo thakbe) */}
+      {/* Mobile Drawer */}
       <div
         className={`md:hidden fixed top-0 right-0 h-full w-[260px] bg-[#111111] z-[50] p-6 shadow-2xl transition-transform duration-300 ease-in-out transform ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
       >
@@ -169,11 +188,30 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            {/* Mobile-er jonno Login/Register jodi session na thake */}
+
+            {/* --- Mobile Screen Specific Routes (Only for Logged in Users) --- */}
+            {session?.user && (
+              <div className="pt-4 space-y-5 border-t border-gray-800">
+                <Link
+                  href="/manage-bike"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block text-lg font-semibold ${pathName === "/manage-bike" ? "text-orange-500" : "text-gray-300 hover:text-white"}`}
+                >
+                  Manage Bikes
+                </Link>
+                <Link
+                  href="/add-bike"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block text-lg font-semibold ${pathName === "/add-bike" ? "text-orange-500" : "text-gray-300 hover:text-white"}`}
+                >
+                  Add Bike
+                </Link>
+              </div>
+            )}
+
             {!session?.user && (
               <div className="pt-5 border-t border-gray-800 space-y-4">
                 <LoginButton />
-
                 <Link
                   href="/register"
                   onClick={() => setIsMobileMenuOpen(false)}
