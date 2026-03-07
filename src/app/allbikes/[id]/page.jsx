@@ -1,11 +1,13 @@
 import { getSingleProduct } from "@/action/server/auth";
 import Image from "next/image";
 import { Bike, Gauge, Weight, Settings, ShieldCheck, Zap } from "lucide-react";
+import { toast } from "react-toastify";
+import OrderButton from "@/components/OrderButton";
 
 const BikeDetailsPage = async ({ params }) => {
   const { id } = await params;
   const result = await getSingleProduct(id);
-  console.log(result);
+  // console.log(result);
   const bike = result; // Data jodi 'data' object er bhitore thake
 
   if (!bike) {
@@ -24,7 +26,9 @@ const BikeDetailsPage = async ({ params }) => {
           {/* Left: Image Section */}
           <div className="relative group">
             <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-gray-200 dark:bg-slate-900 shadow-2xl border border-gray-200 dark:border-slate-800">
-              <img
+              <Image
+                width={300}
+                height={280}
                 src={bike.image}
                 alt={bike.name}
                 className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
@@ -48,9 +52,17 @@ const BikeDetailsPage = async ({ params }) => {
           <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
             <div className="flex justify-between items-start">
               <div>
-                <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-                  {bike.name}
-                </h1>
+                <div className="flex flex-col gap-4">
+                  <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+                    {bike.name}
+                  </h1>
+
+                  <div>
+                    <span className="text-3xl font-bold text-green-600 dark:text-green-400">
+                      Price: {bike.price}
+                    </span>
+                  </div>
+                </div>
                 <div className="mt-2 flex items-center gap-2">
                   <div className="flex text-yellow-400 text-sm">
                     {"★".repeat(Math.floor(bike.rating))}
@@ -63,9 +75,6 @@ const BikeDetailsPage = async ({ params }) => {
                   </span>
                 </div>
               </div>
-              <span className="text-2xl font-bold text-green-600 dark:text-green-400">
-                {bike.price}
-              </span>
             </div>
 
             <div className="mt-6">
@@ -109,9 +118,7 @@ const BikeDetailsPage = async ({ params }) => {
 
             {/* Action Button */}
             <div className="mt-10">
-              <button className="w-full bg-slate-900 dark:bg-green-600 text-white py-4 px-8 rounded-xl font-bold text-lg hover:bg-slate-800 dark:hover:bg-green-700 transition-all active:scale-95 shadow-lg shadow-green-900/20">
-                Book a Test Ride
-              </button>
+              <OrderButton />
             </div>
           </div>
         </div>

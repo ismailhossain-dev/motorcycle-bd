@@ -54,9 +54,9 @@ export const BestSellerSection = () => {
 
           <Link
             href="/allbikes"
-            className="relative z-10 bg-zinc-900 dark:bg-white text-white dark:text-black font-bold py-4 px-8 rounded-2xl w-fit shadow-lg hover:bg-orange-600 dark:hover:bg-orange-600 dark:hover:text-white transition-all duration-300 transform active:scale-95"
+            className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-10 rounded-2xl transition-all shadow-xl shadow-orange-500/20 active:scale-95 w-auto text-center"
           >
-            Explore Performance
+            Explore Shop
           </Link>
 
           {/* SVG Decoration - Color adjusts to theme */}

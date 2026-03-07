@@ -5,6 +5,7 @@ import React from "react";
 const page = async () => {
   const res = await fetch("http://localhost:3000/api/allBikes");
   const allbikes = await res.json();
+  // console.log(allbikes);
 
   //brand gola dekanore jorno function
 
@@ -39,7 +40,7 @@ const page = async () => {
 
       {/* --- Right Side: Product Grid --- */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {allbikes.map((bike) => (
+        {allbikes?.map((bike) => (
           <AllBikeCard key={bike._id} bike={bike} />
         ))}
       </div>

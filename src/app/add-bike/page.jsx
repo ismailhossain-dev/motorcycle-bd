@@ -10,7 +10,7 @@ const AddBikeForm = () => {
     const formData = new FormData(form);
     const bikeData = Object.fromEntries(formData.entries());
 
-    console.log("Submitting Bike Data:", bikeData);
+    // console.log("Submitting Bike Data:", bikeData);
     // Server action call
     const response = await addFormServer(bikeData);
     alert("Check console for all bike data!");
@@ -174,18 +174,6 @@ const AddBikeForm = () => {
 
             {/* Section 3: Media & Details */}
             <div className="space-y-6">
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">
-                  Image URL
-                </label>
-                <input
-                  type="text"
-                  name="image"
-                  className={`${inputStyle} font-mono text-sm`}
-                  placeholder="https://image-link.com/photo.jpg"
-                  required
-                />
-              </div>
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">
                   Description

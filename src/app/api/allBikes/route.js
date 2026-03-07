@@ -10,9 +10,9 @@ export async function GET(request) {
 //add form post api
 
 export const addFormServer = async (payload) => {
-  console.log(payload);
+  // console.log(payload);
   try {
-    const result = await dbConnect("").insertOne(payload);
+    const result = await dbConnect("bikeData").insertOne(payload);
 
     return {
       success: true,

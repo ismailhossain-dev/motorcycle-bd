@@ -3,6 +3,7 @@ import React from "react";
 import { Eye, Trash2, Edit3 } from "lucide-react";
 
 const ManageBikesTable = ({ bike, index }) => {
+  // console.log(bike);
   return (
     <tr className="hover:bg-gray-50/50 dark:hover:bg-white/[0.02] transition-all group">
       {/* Index */}
@@ -44,9 +45,7 @@ const ManageBikesTable = ({ bike, index }) => {
 
       {/* Price */}
       <td>
-        <div className="text-lg font-bold text-orange-600">
-          ${Number(bike.price).toLocaleString()}
-        </div>
+        <div className="text-lg font-bold text-orange-600">${bike.price}</div>
       </td>
 
       {/* Actions */}

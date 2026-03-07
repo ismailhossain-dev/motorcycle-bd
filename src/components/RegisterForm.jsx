@@ -20,12 +20,13 @@ const RegisterForm = () => {
     const registerInfo = { name, email, password };
     try {
       const result = await postUser(registerInfo);
-      router.push("/login");
+      // console.log(result);
 
-      if (result?.insertedId) {
+      if (result?.success) {
         toast.success("Account created successfully! 🏍️");
         form.reset();
       }
+      router.push("/login");
     } catch (error) {
       toast.error("Something went wrong!");
       console.error(error);
@@ -99,7 +100,7 @@ const RegisterForm = () => {
           <button
             disabled={loading}
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 text-white font-black uppercase tracking-widest py-4 rounded-xl shadow-lg shadow-blue-900/20 transition-all transform active:scale-[0.97] mt-4 flex items-center justify-center group"
+            className="w-full disabled:bg-white btn text-white font-black uppercase tracking-widest py-4 rounded-xl shadow-lg shadow-blue-900/20 transition-all transform active:scale-[0.97] mt-4 flex items-center justify-center group"
           >
             {loading ? (
               <span className="flex items-center gap-3">

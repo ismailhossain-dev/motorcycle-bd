@@ -25,14 +25,10 @@ export const HeroSection = () => {
           <div className="flex flex-wrap gap-4">
             <Link
               href="/allbikes"
-              className="bg-zinc-900 dark:bg-white text-white dark:text-black px-8 py-3 rounded-xl font-medium hover:opacity-90 transition shadow-lg"
+              className=" btn bg-zinc-900 dark:bg-white text-white dark:text-black px-8 py-3 rounded-xl font-medium hover:opacity-90 transition shadow-lg"
             >
               Shop Now
             </Link>
-
-            <button className="border-2 border-zinc-900 dark:border-white px-8 py-3 rounded-xl font-medium hover:bg-zinc-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition">
-              Explore Models
-            </button>
           </div>
         </div>
 

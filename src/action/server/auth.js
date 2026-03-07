@@ -3,7 +3,7 @@
 import { dbConnect } from "@/lib/dbConnect";
 import bcrypt from "bcryptjs";
 import { ObjectId } from "mongodb";
-import { toast } from "react-toastify";
+
 //postUser ta Register user korsi er value gola ekane payload hisabe pabe
 export const postUser = async (payload) => {
   //payload ta asbe register form hit korle
