@@ -52,7 +52,7 @@ const Navbar = () => {
           {/* Ekhane age Manage/Add bike chilo, seta ekhon soriye deya hoyeche */}
           {session?.user && (
             <>
-              <Link
+              {/* <Link
                 href="/manage-bike"
                 className={`py-2 px-4 lg:px-5 rounded-full font-medium transition-all duration-300 text-sm lg:text-base ${
                   pathName === "/manage-bike"
@@ -61,9 +61,9 @@ const Navbar = () => {
                 }`}
               >
                 Manage Bikes
-              </Link>
+              </Link> */}
 
-              <Link
+              {/* <Link
                 href="/add-bike"
                 className={`py-2 px-4 lg:px-5 rounded-full font-medium transition-all duration-300 text-sm lg:text-base ${
                   pathName === "/add-bike"
@@ -72,7 +72,7 @@ const Navbar = () => {
                 }`}
               >
                 Add Bike
-              </Link>
+              </Link> */}
             </>
           )}
         </div>

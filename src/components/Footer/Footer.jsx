@@ -17,11 +17,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Info */}
           <div className="space-y-6">
-            <Link href="/" className="inline-block">
-              <h2 className="text-4xl font-black text-white tracking-tighter italic">
-                BIKE<span className="text-orange-500">.</span>
-              </h2>
-            </Link>
+            <div className="flex items-center">
+              <Link href="/">
+                <h1 className="text-2xl md:text-3xl font-bold flex items-center tracking-tighter">
+                  B<span className="w-2.5 h-2.5 bg-orange-600 rounded-full mt-2 mx-0.5"></span>ike
+                </h1>
+              </Link>
+            </div>
             <p className="text-sm leading-relaxed text-gray-500 italic font-medium">
               "Experience the ultimate freedom on two wheels. We provide the best premium bikes for
               every terrain."

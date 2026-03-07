@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
 import { ContactUser } from "../api/contact/route";
+import { toast } from "react-toastify";
 
 const ContactPage = () => {
-  const handleContact = (e) => {
+  const handleContact = async (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -19,8 +20,13 @@ const ContactPage = () => {
       message,
     };
 
-    ContactUser(contactInfo);
-    // form.reset();
+    const result = await ContactUser(contactInfo);
+    console.log(result);
+
+    if (result.success === true) {
+      toast.success("Send message to owner");
+    }
+    form.reset();
   };
 
   return (
@@ -158,7 +164,7 @@ const ContactPage = () => {
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-widest py-5 rounded-2xl transition-all shadow-xl shadow-blue-600/20 active:scale-95"
+                className="w-full bg-orange-600 hover:bg-orange-700 text-white font-black uppercase tracking-widest py-5 rounded-2xl transition-all shadow-xl shadow-blue-600/20 active:scale-95"
               >
                 Send Message
               </button>

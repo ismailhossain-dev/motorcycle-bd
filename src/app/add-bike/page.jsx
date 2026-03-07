@@ -2,8 +2,11 @@
 
 import React from "react";
 import { addFormServer } from "../api/allBikes/route";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const AddBikeForm = () => {
+  const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -13,7 +16,11 @@ const AddBikeForm = () => {
     // console.log("Submitting Bike Data:", bikeData);
     // Server action call
     const response = await addFormServer(bikeData);
-    alert("Check console for all bike data!");
+    console.log(response);
+    if (response.success) {
+      toast.success("Added bike");
+    }
+    router.push("/allbikes");
   };
 
   const inputStyle = `

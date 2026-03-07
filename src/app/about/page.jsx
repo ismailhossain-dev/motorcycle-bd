@@ -37,7 +37,7 @@ const AboutPage = () => {
             The Engineering of Freedom
           </span>
           {/* Main Title font choto kora hoyeche */}
-          <h1 className="text-5xl md:text-[7rem] font-black uppercase tracking-tighter mb-8 italic leading-[0.85]">
+          <h1 className="text-5xl md:text-[5rem] font-black uppercase tracking-tighter mb-8 italic leading-[0.85]">
             Ride the <span className="text-blue-600">Future.</span>
           </h1>
           <p className="text-zinc-500 dark:text-zinc-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed font-medium">

@@ -1,41 +1,26 @@
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
-const privateRoutes = ["/manage-bike", "/add-bike", "/secret"];
-const adminRoutes = ["/dashboard"];
-// This function can be marked `async` if using `await` inside
+const privateRoute = ["/manage-bike", "/add-bike", "/checkout"];
+
 export async function proxy(req) {
-  const token = await getToken({ req });
-  // console.log("hello proxy");
-  const reqPath = req.nextUrl.pathname;
-
+  const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
   const isAuthenticated = Boolean(token);
+  const reqPath = req.nextUrl.pathname;
+  const isPrivateReq = privateRoute.some((route) => req.nextUrl.pathname.startsWith(route));
 
-  const isUser = token?.role === "user";
-
-  const isAdmin = token?.role === "admin";
-
-  const isManage = privateRoutes.some((route) => reqPath.startsWith(route));
-  console.log({ isManage });
-  const isAdminRoute = adminRoutes.some((route) => reqPath.startsWith(route));
-
-  if (!isAuthenticated && isManage) {
-    const loginUrl = new URL("/login", req.url);
-    loginUrl.searchParams.set("callbackUrl", reqPath);
-    return NextResponse.redirect(loginUrl);
+  if (!isAuthenticated && isPrivateReq) {
+    return NextResponse.redirect(new URL(`/login?callbackUrl=${reqPath}`, req.url));
   }
+  // console.log({ token, isPrivateReq, reqPath, isAuthenticated });
 
-  //logic for admin route
-  if (isAuthenticated && !isAdmin && isAdminRoute) {
-    return NextResponse.rewrite(new URL("/forbidden", req.url));
-  }
-
-  // console.log({ isAuthenticated, isUser, reqPath, isPrivate });
-
-  //   return NextResponse.redirect(new URL("/home", req.url));
   return NextResponse.next();
 }
 
+// Alternatively, you can use a default export:
+// export default function proxy(request) { ... }
+
+// See "Matching Paths" below to learn more
 export const config = {
-  matcher: ["/manage-bike/:path*", "/add-bike/:path*", "/secret/:path*"],
+  matcher: ["/manage-bike/:path*", "/add-bike/:path*", "/checkout/:path*"],
 };
