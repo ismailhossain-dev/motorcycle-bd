@@ -11,6 +11,7 @@ const ManageBikesTable = ({ bike, index, onDeleteSuccess }) => {
       method: "DELETE",
     });
 
+    console.log(res);
     if (res.ok) {
       toast.success("Delete Successful!");
       if (onDeleteSuccess) onDeleteSuccess(id);

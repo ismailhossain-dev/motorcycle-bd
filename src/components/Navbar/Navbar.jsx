@@ -17,6 +17,7 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "Shop", path: "/allbikes" },
     { name: "About", path: "/about" },
+    { name: "Featured", path: "/feature" },
     { name: "Add Bike", path: "/add-bike" },
     { name: "Manage Bike", path: "/manage-bike" },
     { name: "Contact Us", path: "/contact" },
@@ -49,32 +50,6 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          {/* Ekhane age Manage/Add bike chilo, seta ekhon soriye deya hoyeche */}
-          {session?.user && (
-            <>
-              {/* <Link
-                href="/manage-bike"
-                className={`py-2 px-4 lg:px-5 rounded-full font-medium transition-all duration-300 text-sm lg:text-base ${
-                  pathName === "/manage-bike"
-                    ? "bg-orange-600 text-white shadow-lg"
-                    : "text-gray-400 hover:text-white hover:bg-white/5"
-                }`}
-              >
-                Manage Bikes
-              </Link> */}
-
-              {/* <Link
-                href="/add-bike"
-                className={`py-2 px-4 lg:px-5 rounded-full font-medium transition-all duration-300 text-sm lg:text-base ${
-                  pathName === "/add-bike"
-                    ? "bg-orange-600 text-white shadow-lg"
-                    : "text-gray-400 hover:text-white hover:bg-white/5"
-                }`}
-              >
-                Add Bike
-              </Link> */}
-            </>
-          )}
         </div>
 
         {/* 3. User Actions */}
@@ -189,26 +164,6 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-
-            {/* --- Mobile Screen Specific Routes (Only for Logged in Users) --- */}
-            {session?.user && (
-              <div className="pt-4 space-y-5 border-t border-gray-800">
-                <Link
-                  href="/manage-bike"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block text-lg font-semibold ${pathName === "/manage-bike" ? "text-orange-500" : "text-gray-300 hover:text-white"}`}
-                >
-                  Manage Bikes
-                </Link>
-                <Link
-                  href="/add-bike"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block text-lg font-semibold ${pathName === "/add-bike" ? "text-orange-500" : "text-gray-300 hover:text-white"}`}
-                >
-                  Add Bike
-                </Link>
-              </div>
-            )}
 
             {!session?.user && (
               <div className="pt-5 border-t border-gray-800 space-y-4">
